@@ -22,15 +22,15 @@ A professional, production-ready NestJS starter kit incorporating Clean Architec
 
 ## 🛠 Technology Stack
 
-| Category | Technology |
-| :--- | :--- |
-| **Framework** | [NestJS v11+](https://nestjs.com/) |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) |
-| **Database** | [PostgreSQL](https://www.postgresql.org/) |
-| **ORM** | [Prisma v7+](https://www.prisma.io/) |
-| **API Docs** | [Swagger / OpenAPI](https://swagger.io/) |
+| Category       | Technology                                                                                |
+| :------------- | :---------------------------------------------------------------------------------------- |
+| **Framework**  | [NestJS v11+](https://nestjs.com/)                                                        |
+| **Language**   | [TypeScript](https://www.typescriptlang.org/)                                             |
+| **Database**   | [PostgreSQL](https://www.postgresql.org/)                                                 |
+| **ORM**        | [Prisma v7+](https://www.prisma.io/)                                                      |
+| **API Docs**   | [Swagger / OpenAPI](https://swagger.io/)                                                  |
 | **Validation** | [Joi](https://joi.dev/) & [class-validator](https://github.com/typestack/class-validator) |
-| **Testing** | [Jest](https://jestjs.io/) & [Supertest](https://github.com/visionmedia/supertest) |
+| **Testing**    | [Jest](https://jestjs.io/) & [Supertest](https://github.com/visionmedia/supertest)        |
 
 ---
 
@@ -67,18 +67,21 @@ src/
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone <repository-url>
    cd <project-folder>
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Environment Setup**:
    Create a `.env` file in the root directory and configure your variables:
+
    ```env
    DATABASE_URL="postgresql://user:password@localhost:5432/db_name?schema=public"
    PORT=3000
@@ -89,6 +92,7 @@ src/
 
 4. **Prisma Setup**:
    Generate Prisma client and run migrations:
+
    ```bash
    npm run prisma:generate
    npm run prisma:migrate
@@ -118,9 +122,14 @@ npm run start:prod
 
 Once the server is running, you can access the Swagger UI:
 
-- **Swagger**: `http://localhost:3000/api/docs` (Base path)
+- **Swagger**: `http://localhost:3000/docs` (Base path)
+- **Global Prefix**: `http://localhost:3000/api/v1`
 
 The documentation is automatically generated from the controllers and DTOs using `@nestjs/swagger`.
+
+### Multi-Tenancy
+
+The API supports multi-tenancy. You can provide the `x-tenant-id` header in your requests to filter or isolate data by tenant.
 
 ---
 
@@ -151,4 +160,5 @@ npm run test:cov
 
 ## 📄 License
 
-This project is [UNLICENSED](LICENSE).
+This project is open-source software licensed under the MIT License.
+See the [LICENSE](LICENSE) file for more information.
