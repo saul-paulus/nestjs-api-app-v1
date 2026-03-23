@@ -1,6 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthController } from './auth.controller';
 import { LoginUseCase } from 'src/core/application/use-cases/auth/login.usecase';
+import { RegisterUseCase } from 'src/core/application/use-cases/auth/register.usecase';
+import { GetProfileUseCase } from 'src/core/application/use-cases/auth/get-profile.usecase';
+import { JwtTokenService } from 'src/core/infrastructure/services/jwt.service';
 import { LoginDto } from './dto/login.dto';
 import { User } from '@prisma/client';
 
@@ -16,6 +19,24 @@ describe('AuthController', () => {
           provide: LoginUseCase,
           useValue: {
             execute: jest.fn(),
+          },
+        },
+        {
+          provide: RegisterUseCase,
+          useValue: {
+            execute: jest.fn(),
+          },
+        },
+        {
+          provide: GetProfileUseCase,
+          useValue: {
+            execute: jest.fn(),
+          },
+        },
+        {
+          provide: JwtTokenService,
+          useValue: {
+            verifyToken: jest.fn(),
           },
         },
       ],
