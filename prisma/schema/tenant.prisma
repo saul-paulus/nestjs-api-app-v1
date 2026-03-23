@@ -1,0 +1,13 @@
+model Tenant {
+  tenant_id   String   @id @default(uuid())
+  plan_id     Int
+  code_tenant String   @unique
+  status      Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  deleted_at  DateTime @default(now())
+
+  users User[]
+
+  @@map("tbl_tenant")
+}
